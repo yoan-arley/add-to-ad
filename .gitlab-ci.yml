@@ -1,0 +1,7 @@
+ image: registry.gitlab.com/opengt/home/dev/sv-w:001
+
+ before_script: 
+ - composer install
+
+ test: 
+ - composer test
