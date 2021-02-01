@@ -1,0 +1,5 @@
+FROM nginx:latest
+MAINTAINER Yoan-Arley
+
+VOLUME /root/Docker/sv-w/server-world/:/usr/share/nginx/html
+EXPOSE 8091:80
