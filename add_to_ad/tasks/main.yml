@@ -1,0 +1,40 @@
+---
+# tasks file for add_to_ad
+#
+- name: "Update the server"
+  apt:
+    update_cache: yes
+    upgrade: dist
+  tags: update
+
+- name: "Install some required packages."
+  apt:
+    name: '{{item}}'
+    state: present
+  with_items: '{{packages}}'
+  become: yes
+  tags: pkg
+
+- name: "Create home directory automatically at initial login"
+  shell:
+  args: 
+    cmd: '{{pam}}'
+  tags: pam
+
+- name: 'Join in Active Directory domain'
+  shell:
+  args:
+    cmd: "echo '{{password}}' | {{join}}"
+  tags: join
+
+- name: "Include sssd"
+  include: "./sssd.yml"
+  tags: sssd
+
+- name: "Restart sssd"
+  service:
+    name: sssd
+    enabled: yes
+    state: restarted
+  become: yes
+  tags: r_sssd

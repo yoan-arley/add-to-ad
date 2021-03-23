@@ -1,0 +1,12 @@
+---
+- name: "Configure Homedir"
+  replace:
+    path: "{{sssd}}"
+    regexp: "%u@%d"
+    replace: "%d/%u"
+
+- name: "Fully qualidied names"
+  replace: 
+    path: "{{sssd}}"
+    regexp: "use_fully_qualified_names = True"
+    replace: "use_fully_qualified_names = False"

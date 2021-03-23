@@ -1,0 +1,19 @@
+---
+# vars file for add_to_ad
+#
+packages: 
+  - realmd
+  - sssd
+  - sssd-tools
+  - adcli
+  - krb5-user
+  - packagekit
+  - samba-common
+  - samba-common-bin
+  - samba-libs
+
+pam: "echo 'session optional        pam_mkhomedir.so skel=/etc/skel umask=077' >> /etc/pam.d/common-session"
+
+join: "realm join golden.net --user a.go"
+
+sssd: "/etc/sssd/sssd.conf"
