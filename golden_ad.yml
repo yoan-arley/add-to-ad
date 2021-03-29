@@ -1,6 +1,6 @@
 ---
 - name: "Add to AD"
-  hosts: sv-gold
+  hosts: all
   become: yes
   remote_user: golden
   roles:
