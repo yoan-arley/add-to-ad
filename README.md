@@ -68,3 +68,6 @@ Ci-dessous vous avez l'organisation des rôles et des playbooks Ansibles
 4. Le repertoire *vars* contient les variables utilisées. 
 
 Le second fichier README.md donne des informations sur le déploiement.
+
+
+                                                                                         -- MYAF --
